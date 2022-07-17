@@ -410,4 +410,87 @@
         </div>
     </div>
 </div>
+
+<div class="card">
+    <div class="card-header">
+        Related Data
+    </div>
+    <ul class="nav nav-tabs" role="tablist" id="relationship-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="#biodata_impasings" role="tab" data-toggle="tab">
+                Inpasing
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#biodata_jafungs" role="tab" data-toggle="tab">
+                Jabatan Fungsional
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#biodata_kepangkatans" role="tab" data-toggle="tab">
+                Kepangkatan
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#biodata_pendidikans" role="tab" data-toggle="tab">
+                Pendidikan
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#biodata_diklats" role="tab" data-toggle="tab">
+                Diklat
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#biodata_sertifikasis" role="tab" data-toggle="tab">
+                Sertifikasi Dosen
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#biodata_sertifikasiprofs" role="tab" data-toggle="tab">
+                Sertifikasi Professi
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#biodata_studis" role="tab" data-toggle="tab">
+                Studi Lanjut
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#biodata_rekognisis" role="tab" data-toggle="tab">
+                Rekognisi
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane" role="tabpanel" id="biodata_impasings">
+            @includeIf('admin.biodata.relationships.biodataImpasings', ['impasings' => $biodatum->biodataImpasings])
+        </div>
+        <div class="tab-pane" role="tabpanel" id="biodata_jafungs">
+            @includeIf('admin.biodata.relationships.biodataJafungs', ['jafungs' => $biodatum->biodataJafungs])
+        </div>
+        <div class="tab-pane" role="tabpanel" id="biodata_kepangkatans">
+            @includeIf('admin.biodata.relationships.biodataKepangkatans', ['kepangkatans' => $biodatum->biodataKepangkatans])
+        </div>
+        <div class="tab-pane" role="tabpanel" id="biodata_pendidikans">
+            @includeIf('admin.biodata.relationships.biodataPendidikans', ['pendidikans' => $biodatum->biodataPendidikans])
+        </div>
+        <div class="tab-pane" role="tabpanel" id="biodata_diklats">
+            @includeIf('admin.biodata.relationships.biodataDiklats', ['diklats' => $biodatum->biodataDiklats])
+        </div>
+        <div class="tab-pane" role="tabpanel" id="biodata_sertifikasis">
+            @includeIf('admin.biodata.relationships.biodataSertifikasis', ['sertifikasis' => $biodatum->biodataSertifikasis])
+        </div>
+        <div class="tab-pane" role="tabpanel" id="biodata_sertifikasiprofs">
+            @includeIf('admin.biodata.relationships.biodataSertifikasiprofs', ['sertifikasiprofs' => $biodatum->biodataSertifikasiprofs])
+        </div>
+        <div class="tab-pane" role="tabpanel" id="biodata_studis">
+            @includeIf('admin.biodata.relationships.biodataStudis', ['studis' => $biodatum->biodataStudis])
+        </div>
+        <div class="tab-pane" role="tabpanel" id="biodata_rekognisis">
+            @includeIf('admin.biodata.relationships.biodataRekognisis', ['rekognisis' => $biodatum->biodataRekognisis])
+        </div>
+    </div>
+</div>
+
 @endsection

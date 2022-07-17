@@ -111,8 +111,6 @@
 </div>
 
 
-
-@endsection
 @section('scripts')
 @parent
 <script>
@@ -124,7 +122,7 @@
     order: [[ 1, 'asc' ]],
     pageLength: 100,
   });
-  let table = $('.datatable-Studi:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  let table = $('.datatable-biodataStudis:not(.ajaxTable)').DataTable({ buttons: dtButtons })
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
@@ -133,3 +131,4 @@
 })
 
 </script>
+@endsection

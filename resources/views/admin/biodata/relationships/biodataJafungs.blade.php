@@ -2,7 +2,7 @@
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
             <a class="btn btn-success" href="{{ route('admin.jafungs.create') }}">
-                Tambah Jadabtan Fungsional
+                Tambah Jabatan Fungsional
             </a>
         </div>
     </div>
@@ -92,9 +92,6 @@
     </div>
 </div>
 
-
-
-@endsection
 @section('scripts')
 @parent
 <script>
@@ -106,7 +103,7 @@
     order: [[ 1, 'asc' ]],
     pageLength: 100,
   });
-  let table = $('.datatable-Jafung:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  let table = $('.datatable-biodataJafungs:not(.ajaxTable)').DataTable({ buttons: dtButtons })
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
@@ -115,3 +112,4 @@
 })
 
 </script>
+@endsection
