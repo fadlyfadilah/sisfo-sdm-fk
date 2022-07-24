@@ -85,10 +85,6 @@
         </div>
     </div>
 </div>
-
-
-
-@endsection
 @section('scripts')
 @parent
 <script>
@@ -109,3 +105,4 @@
 })
 
 </script>
+@endsection

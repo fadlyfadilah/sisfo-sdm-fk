@@ -1,4 +1,3 @@
-
 @can('diklat_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
@@ -113,3 +112,4 @@
 })
 
 </script>
+@endsection

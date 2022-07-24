@@ -2,14 +2,14 @@
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
             <a class="btn btn-success" href="{{ route('admin.sertifikasis.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.sertifikasi.title_singular') }}
+                Tambah Sertifikat Dosen
             </a>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.sertifikasi.title_singular') }} {{ trans('global.list') }}
+        Daftar Sertifikat Dosen
     </div>
 
     <div class="card-body">
@@ -99,8 +99,6 @@
 </div>
 
 
-
-@endsection
 @section('scripts')
 @parent
 <script>
@@ -112,7 +110,7 @@
     order: [[ 1, 'asc' ]],
     pageLength: 100,
   });
-  let table = $('.datatable-Sertifikasi:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  let table = $('.datatable-biodataSertifikasis:not(.ajaxTable)').DataTable({ buttons: dtButtons })
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
@@ -121,3 +119,4 @@
 })
 
 </script>
+@endsection
