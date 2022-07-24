@@ -71,7 +71,13 @@ class JafungController extends Controller
                 $file_jabfung = $jafung->file_jabfung;
             }
         } else {
-            $file_jabfung = request()->file('file_jabfung')->store('file/jabfung');
+            if ($jafung->file_jabfung = NULL) {
+                $file_jabfung = request()->file('file_jabfung')->store('file/jabfung');
+            }
+            else {
+                $file_jabfung = null;
+            }
+            
         }
         $attr['file_jabfung'] = $file_jabfung;
         

@@ -2,6 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\BiodataAkademikExport;
+use App\Exports\BiodataAmiExport;
+use App\Exports\BiodataExport;
+use App\Exports\BiodataKontrakYayasanExport;
+use App\Exports\BiodataProfesiExport;
+use App\Exports\BiodataTetapExport;
+use App\Exports\BiodataTidakTetapExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyBiodatumRequest;
 use App\Http\Requests\StoreBiodatumRequest;
@@ -11,6 +18,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\Response;
 
 class BiodataController extends Controller
@@ -92,7 +100,12 @@ class BiodataController extends Controller
                 $image = $biodatum->image;
             }
         } else {
-            $image = request()->file('image')->store('file/image');
+            if ($biodatum->image = NULL) {
+                $image = request()->file('image')->store('file/image');
+            }
+            else {
+                $image = null;
+            }
         }
         if ($biodatum->nidn_file != NULL) {
             if (request()->file('nidn_file')) {
@@ -102,7 +115,12 @@ class BiodataController extends Controller
                 $nidn = $biodatum->nidn_file;
             }
         } else {
-            $nidn = request()->file('nidn_file')->store('file/nidn');
+            if ($biodatum->nidn_file = NULL) {
+                $nidn = request()->file('nidn_file')->store('file/nidn');
+            }
+            else {
+                $nidn = null;
+            }
         }
         if ($biodatum->filektp != NULL) {
             if (request()->file('filektp')) {
@@ -112,8 +130,14 @@ class BiodataController extends Controller
                 $ktp = $biodatum->filektp;
             }
         } else {
-            $ktp = request()->file('filektp')->store('file/ktp');
+            if ($biodatum->filektp = NULL) {
+                $ktp = request()->file('filektp')->store('file/ktp');
+            }
+            else {
+                $ktp = null;
+            }
         }
+
         if ($biodatum->sk_yayasandoc != NULL) {
             if (request()->file('sk_yayasandoc')) {
                 Storage::delete($biodatum->sk_yayasandoc);
@@ -122,9 +146,14 @@ class BiodataController extends Controller
                 $sk_yayasandoc = $biodatum->sk_yayasandoc;
             }
         } else {
-            $sk_yayasandoc = request()->file('sk_yayasandoc')->store('file/sk_yayasandoc');
+            if ($biodatum->sk_yayasandoc = NULL) {
+                $sk_yayasandoc = request()->file('sk_yayasandoc')->store('file/sk_yayasandoc');
+            }
+            else {
+                $sk_yayasandoc = null;
+            }
         }
-        
+
         $attr['image'] = $image;
         $attr['nidn_file'] = $nidn;
         $attr['filektp'] = $ktp;
@@ -155,4 +184,33 @@ class BiodataController extends Controller
 
         return back();
     }
+
+    public function export()
+    {
+        return Excel::download(new BiodataExport, 'Export Biodata Dosen.xlsx');
+    }
+    public function exportDosenAkademik()
+    {
+        return Excel::download(new BiodataAkademikExport, 'Export Biodata Dosen Akademik.xlsx');
+    }
+    public function exportDosenProfesi()
+    {
+        return Excel::download(new BiodataProfesiExport, 'Export Biodata Dosen Profesi.xlsx');
+    }
+    public function exportDosenTetap()
+    {
+        return Excel::download(new BiodataTetapExport, 'Export Biodata Dosen Tetap Yayasan.xlsx');
+    } 
+    public function exportDosenTidakTetap()
+    {
+        return Excel::download(new BiodataTidakTetapExport, 'Export Biodata Dosen Tidak Tetap.xlsx');
+    } 
+    public function exportDosenKontrakYayasan()
+    {
+        return Excel::download(new BiodataKontrakYayasanExport, 'Export Biodata Dosen Kontak Yayasan.xlsx');
+    } 
+    public function exportBiodataAmi()
+    {
+        return Excel::download(new BiodataAmiExport, 'Export Biodata Dosen Borang AMI.xlsx');
+    } 
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\StudiExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyStudiRequest;
 use App\Http\Requests\StoreStudiRequest;
@@ -10,6 +11,7 @@ use App\Models\Biodatum;
 use App\Models\Studi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\Response;
 
 class StudiController extends Controller
@@ -73,5 +75,9 @@ class StudiController extends Controller
         $studi->delete();
 
         return back();
+    }
+    public function export()
+    {
+        return Excel::download(new StudiExport, 'Export Data Studi Dosen.xlsx');
     }
 }

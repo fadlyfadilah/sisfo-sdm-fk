@@ -63,7 +63,7 @@ class SertifikasiController extends Controller
     public function update(UpdateSertifikasiRequest $request, Sertifikasi $sertifikasi)
     {
         $attr = $request->all();
-        if ($sertifikasi->file_jabfung != NULL) {
+        if ($sertifikasi->file_serdos != NULL) {
             if (request()->file('file_serdos')) {
                 Storage::delete($sertifikasi->file_serdos);
                 $file_serdos = request()->file('file_serdos')->store('file/serdos');
@@ -71,7 +71,13 @@ class SertifikasiController extends Controller
                 $file_serdos = $sertifikasi->file_serdos;
             }
         } else {
-            $file_serdos = request()->file('file_serdos')->store('file/serdos');
+            if ($sertifikasi->file_serdos = NULL) {
+                $file_serdos = request()->file('file_serdos')->store('file/serdos');
+            }
+            else {
+                $file_serdos = null;
+            }
+            
         }
         $attr['file_serdos'] = $file_serdos;
         $sertifikasi->update($attr);

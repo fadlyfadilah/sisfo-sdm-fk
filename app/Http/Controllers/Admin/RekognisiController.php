@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\RekognisiExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyRekognisiRequest;
 use App\Http\Requests\StoreRekognisiRequest;
@@ -10,6 +11,7 @@ use App\Models\Biodatum;
 use App\Models\Rekognisi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\Response;
 
 class RekognisiController extends Controller
@@ -73,5 +75,9 @@ class RekognisiController extends Controller
         $rekognisi->delete();
 
         return back();
+    }
+    public function export()
+    {
+        return Excel::download(new RekognisiExport, 'Export Data Rekognisi.xlsx');
     }
 }

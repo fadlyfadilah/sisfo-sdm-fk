@@ -63,7 +63,7 @@ class SertifikasiprofController extends Controller
     public function update(UpdateSertifikasiprofRequest $request, Sertifikasiprof $sertifikasiprof)
     {
         $attr = $request->all();
-        if ($sertifikasiprof->file_jabfung != NULL) {
+        if ($sertifikasiprof->file_serti != NULL) {
             if (request()->file('file_serti')) {
                 Storage::delete($sertifikasiprof->file_serti);
                 $file_serti = request()->file('file_serti')->store('file/sertiprof');
@@ -71,7 +71,13 @@ class SertifikasiprofController extends Controller
                 $file_serti = $sertifikasiprof->file_serti;
             }
         } else {
-            $file_serti = request()->file('file_serti')->store('file/sertiprof');
+            if ($sertifikasiprof->file_serti = NULL) {
+                $file_serti = request()->file('file_serti')->store('file/sertiprof');
+            }
+            else {
+                $file_serti = null;
+            }
+            
         }
         $attr['file_serti'] = $file_serti;
         $sertifikasiprof->update($attr);

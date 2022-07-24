@@ -2,7 +2,7 @@
 @section('content')
 @can('diklat_create')
     <div style="margin-bottom: 10px;" class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-6">
             <a class="btn btn-success" href="{{ route('admin.diklats.create') }}">
                 Tambah Data Diklat
             </a>

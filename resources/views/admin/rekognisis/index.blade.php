@@ -2,10 +2,21 @@
 @section('content')
 @can('rekognisi_create')
     <div style="margin-bottom: 10px;" class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-6">
             <a class="btn btn-success" href="{{ route('admin.rekognisis.create') }}">
                 Tambah Rekognisi
             </a>
+        </div>
+        <div class="col-lg-6">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-coreui-toggle="dropdown"
+                    aria-expanded="false">
+                    Export
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/admin/export/rekognisi">Data Rekognisi Dosen</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 @endcan

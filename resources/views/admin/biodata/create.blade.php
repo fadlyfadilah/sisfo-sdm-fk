@@ -206,6 +206,46 @@
                     <div class="card-header"><b>Bidang Keilmuan</b></div>
                     <div class="card-body">
                         <div class="form-group">
+                            <label for="pendikteks2">Pendidikan Terakhir S2</label>
+                            <input class="form-control {{ $errors->has('pendikteks2') ? 'is-invalid' : '' }}"
+                                type="text" name="pendikteks2" id="pendikteks2" value="{{ old('pendikteks2', '') }}">
+                            @if ($errors->has('pendikteks2'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('pendikteks2') }}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label for="pendikteks3">Pendidikan Terakhir S3</label>
+                            <input class="form-control {{ $errors->has('pendikteks3') ? 'is-invalid' : '' }}"
+                                type="text" name="pendikteks3" id="pendikteks3" value="{{ old('pendikteks3', '') }}">
+                            @if ($errors->has('pendikteks3'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('pendikteks3') }}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label for="nosertipen">Nomor Sertifikat Pendidik</label>
+                            <input class="form-control {{ $errors->has('nosertipen') ? 'is-invalid' : '' }}"
+                                type="text" name="nosertipen" id="nosertipen" value="{{ old('nosertipen', '') }}">
+                            @if ($errors->has('nosertipen'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('nosertipen') }}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label for="nosertikom">Nomor Sertifikat Kompetensi</label>
+                            <input class="form-control {{ $errors->has('nosertikom') ? 'is-invalid' : '' }}"
+                                type="text" name="nosertikom" id="nosertikom" value="{{ old('nosertikom', '') }}">
+                            @if ($errors->has('nosertikom'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('nosertikom') }}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group">
                             <label for="bidangke_1">Bidang Ahli 1</label>
                             <input class="form-control {{ $errors->has('bidangke_1') ? 'is-invalid' : '' }}"
                                 type="text" name="bidangke_1" id="bidangke_1" value="{{ old('bidangke_1', '') }}">
@@ -375,12 +415,22 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <label for="nip_pns">NIP (Khusu PNS)</label>
+                            <label for="nip_pns">NIP (Khusus PNS)</label>
                             <input class="form-control {{ $errors->has('nip_pns') ? 'is-invalid' : '' }}" type="text"
                                 name="nip_pns" id="nip_pns" value="{{ old('nip_pns', '(Tidak ada data)') }}">
                             @if ($errors->has('nip_pns'))
                                 <div class="invalid-feedback">
                                     {{ $errors->first('nip_pns') }}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label for="jabfungtek">Jabatan Fungsional Terakhir</label>
+                            <input class="form-control {{ $errors->has('jabfungtek') ? 'is-invalid' : '' }}" type="text"
+                                name="jabfungtek" id="jabfungtek" value="{{ old('jabfungtek', '(Tidak ada data)') }}">
+                            @if ($errors->has('jabfungtek'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('jabfungtek') }}
                                 </div>
                             @endif
                         </div>

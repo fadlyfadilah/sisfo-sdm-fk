@@ -71,7 +71,13 @@ class ImpasingController extends Controller
                 $upload_skin = $impasing->upload_skin;
             }
         } else {
-            $upload_skin = request()->file('upload_skin')->store('file/impassing');
+            if ($impasing->upload_skin = NULL) {
+                $upload_skin = request()->file('upload_skin')->store('file/impassing');
+            }
+            else {
+                $upload_skin = null;
+            }
+            
         }
         $attr['upload_skin'] = $upload_skin;
         $impasing->update($attr);

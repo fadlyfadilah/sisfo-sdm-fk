@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\DiklatExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyDiklatRequest;
 use App\Http\Requests\StoreDiklatRequest;
@@ -11,6 +12,7 @@ use App\Models\Diklat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\Response;
 
 class DiklatController extends Controller
@@ -71,7 +73,12 @@ class DiklatController extends Controller
                 $file_diklat = $diklat->file_diklat;
             }
         } else {
-            $file_diklat = request()->file('file_diklat')->store('file/diklat');
+            if ($diklat->file_diklat = NULL) {
+                $file_diklat = request()->file('file_diklat')->store('file/diklat');
+            }
+            else {
+                $file_diklat = null;
+            }
         }
         $attr['file_diklat'] = $file_diklat;
         $diklat->update($attr);
@@ -96,4 +103,6 @@ class DiklatController extends Controller
 
         return back();
     }
+
+    
 }

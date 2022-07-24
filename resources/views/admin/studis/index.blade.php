@@ -2,16 +2,27 @@
 @section('content')
 @can('studi_create')
     <div style="margin-bottom: 10px;" class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-6">
             <a class="btn btn-success" href="{{ route('admin.studis.create') }}">
-                Tambah Studi Lanju
+                Tambah Studi Lanjut
             </a>
+        </div>
+        <div class="col-lg-6">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-coreui-toggle="dropdown"
+                    aria-expanded="false">
+                    Export
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/admin/export/studi">Data Studi Lanjut Dosen</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        Daftar Studi Lanju
+        Daftar Studi Lanjut
     </div>
 
     <div class="card-body">

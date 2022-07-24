@@ -71,7 +71,13 @@ class KepangkatanController extends Controller
                 $upload_sk = $kepangkatan->upload_sk;
             }
         } else {
-            $upload_sk = request()->file('upload_sk')->store('file/kepangkatan');
+            if ($kepangkatan->upload_sk = NULL) {
+                $upload_sk = request()->file('upload_sk')->store('file/kepangkatan');
+            }
+            else {
+                $upload_sk = null;
+            }
+            
         }
         $attr['upload_sk'] = $upload_sk;
         $kepangkatan->update($request->all());

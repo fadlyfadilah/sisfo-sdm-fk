@@ -288,6 +288,26 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 70,
+                'title' => 'peningkatan_create',
+            ],
+            [
+                'id'    => 71,
+                'title' => 'peningkatan_edit',
+            ],
+            [
+                'id'    => 72,
+                'title' => 'peningkatan_show',
+            ],
+            [
+                'id'    => 73,
+                'title' => 'peningkatan_delete',
+            ],
+            [
+                'id'    => 74,
+                'title' => 'peningkatan_access',
+            ],
+            [
+                'id'    => 75,
                 'title' => 'profile_password_edit',
             ],
         ];

@@ -162,6 +162,38 @@
                     </tr>
                     <tr>
                         <th>
+                            Pendidikan Terakhir S2
+                        </th>
+                        <td>
+                            {{ $biodatum->pendikteks2 }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Pendidikan Terakhir S3
+                        </th>
+                        <td>
+                            {{ $biodatum->pendikteks3 }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Nomor Sertifikat Pendidik
+                        </th>
+                        <td>
+                            {{ $biodatum->nosertipen }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Nomor Sertifikat Kompetensi
+                        </th>
+                        <td>
+                            {{ $biodatum->nosertikom }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             Bidang Keilmuan ke-1
                         </th>
                         <td>

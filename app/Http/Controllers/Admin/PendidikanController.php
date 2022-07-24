@@ -71,7 +71,13 @@ class PendidikanController extends Controller
                 $file_ijazah = $pendidikan->file_ijazah;
             }
         } else {
-            $file_ijazah = request()->file('file_ijazah')->store('file/pendidikan');
+            if ($pendidikan->file_ijazah = NULL) {
+                $file_ijazah = request()->file('file_ijazah')->store('file/pendidikan');
+            }
+            else {
+                $file_ijazah = null;
+            }
+            
         }
         $attr['file_ijazah'] = $file_ijazah;
         $pendidikan->update($request->all());

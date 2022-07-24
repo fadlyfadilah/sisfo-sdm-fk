@@ -31,6 +31,10 @@ return new class extends Migration
             $table->string('nipsuami_istri')->nullable();
             $table->string('pekerjaan_suami_istri')->nullable();
             $table->date('pns_suami_istri')->nullable();
+            $table->string('pendikteks2')->nullable();
+            $table->string('pendikteks3')->nullable();
+            $table->string('nosertipen')->nullable();
+            $table->string('nosertikom')->nullable();
             $table->string('bidangke_1')->nullable();
             $table->string('bidangke_2')->nullable();
             $table->string('homebase')->nullable();
@@ -48,6 +52,7 @@ return new class extends Migration
             $table->string('prodi')->nullable();
             $table->string('nip_pns')->nullable();
             $table->string('statuskep')->nullable();
+            $table->string('jabfungtek')->nullable();
             $table->string('institusi')->nullable();
             $table->string('bagian')->nullable();
             $table->string('status_aktif')->nullable();

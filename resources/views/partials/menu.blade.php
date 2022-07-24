@@ -131,7 +131,7 @@
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route('admin.diklats.index') }}"
                                 class="c-sidebar-nav-link {{ request()->is('admin/diklats') || request()->is('admin/diklats/*') ? 'c-active' : '' }}">
-                                Diklat / Peningkatan Kompetensi Dosen
+                                Diklat
                             </a>
                         </li>
                     @endcan
@@ -192,6 +192,16 @@
 
                     </i>
                     Rekognisi
+                </a>
+            </li>
+        @endcan
+        @can('peningkatan_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route("admin.peningkatans.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/peningkatans") || request()->is("admin/peningkatans/*") ? "c-active" : "" }}">
+                    <i class="fa-fw fas fa-user-graduate c-sidebar-nav-icon">
+
+                    </i>
+                    Peningkatan Kompetensi Dosen
                 </a>
             </li>
         @endcan

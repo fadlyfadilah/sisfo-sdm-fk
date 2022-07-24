@@ -19,13 +19,14 @@ class Biodatum extends Model
     ];
 
     public const HOMEBASE_SELECT = [
-        'Akamdeik' => 'Akademik',
+        'Akademik' => 'Akademik',
         'Profesi'  => 'Profesi',
     ];
 
     public const STATUSKEP_SELECT = [
-        'Dosen Tetap'       => 'Dosen Tetap',
+        'Dosen Tetap Yayasan'       => 'Dosen Tetap Yayasan',
         'Dosen Tidak Tetap' => 'Dosen Tidak Tetap',
+        'Dosen Kontrak Yayasan' => 'Dosen Kontrak Yayasan',
     ];
 
     public $table = 'biodata';
