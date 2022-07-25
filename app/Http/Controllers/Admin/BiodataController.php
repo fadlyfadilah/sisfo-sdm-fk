@@ -176,10 +176,10 @@ class BiodataController extends Controller
     public function destroy(Biodatum $biodatum)
     {
         abort_if(Gate::denies('biodatum_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        Storage::delete($biodatum->image);
-        Storage::delete($biodatum->nidn_file);
-        Storage::delete($biodatum->filektp);
-        Storage::delete($biodatum->sk_yayasandoc);
+        $biodatum->image != NULL ? Storage::delete($biodatum->image) : NULL;
+        $biodatum->nidn_file != NULL ? Storage::delete($biodatum->nidn_file) : NULL;
+        $biodatum->filektp != NULL ? Storage::delete($biodatum->filektp) : NULL;
+        $biodatum->sk_yayasandoc != NULL ? Storage::delete($biodatum->sk_yayasandoc) : NULL;
         $biodatum->delete();
 
         return back();
