@@ -648,7 +648,7 @@
                 <div class="form-group">
                     <label for="npwp">NPWP</label>
                     <input class="form-control {{ $errors->has('npwp') ? 'is-invalid' : '' }}" type="text"
-                        name="npwp" id="npwp" value="{{ old('npwp', $biodata->npwp) }}">
+                        name="npwp" id="npwp" value="{{ old('npwp', $biodata->npwp ?? '') }}">
                     @if ($errors->has('npwp'))
                         <div class="invalid-feedback">
                             {{ $errors->first('npwp') }}
@@ -658,7 +658,7 @@
                 <div class="form-group">
                     <label for="pajak">Nama Wajib Pajak</label>
                     <input class="form-control {{ $errors->has('pajak') ? 'is-invalid' : '' }}" type="text"
-                        name="pajak" id="pajak" value="{{ old('pajak', $biodata->pajak) }}">
+                        name="pajak" id="pajak" value="{{ old('pajak', $biodata->pajak ?? '') }}">
                     @if ($errors->has('pajak'))
                         <div class="invalid-feedback">
                             {{ $errors->first('pajak') }}
@@ -668,7 +668,7 @@
                 <div class="form-group">
                     <label for="jabatan">Jabatan</label>
                     <input class="form-control {{ $errors->has('jabatan') ? 'is-invalid' : '' }}" type="text"
-                        name="jabatan" id="jabatan" value="{{ old('jabatan', $biodata->jabatan) }}">
+                        name="jabatan" id="jabatan" value="{{ old('jabatan', $biodata->jabatan ?? '') }}">
                     @if ($errors->has('jabatan'))
                         <div class="invalid-feedback">
                             {{ $errors->first('jabatan') }}
@@ -678,7 +678,7 @@
                 <div class="form-group">
                     <label for="matkul">Matakuliah yang diampu</label>
                     <input class="form-control {{ $errors->has('matkul') ? 'is-invalid' : '' }}" type="text"
-                        name="matkul" id="matkul" value="{{ old('matkul', $biodata->matkul) }}">
+                        name="matkul" id="matkul" value="{{ old('matkul', $biodata->matkul ?? '') }}">
                     @if ($errors->has('matkul'))
                         <div class="invalid-feedback">
                             {{ $errors->first('matkul') }}
