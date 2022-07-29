@@ -27,6 +27,7 @@ use App\Http\Controllers\Frontend\RekognisiController as FrontendRekognisiContro
 use App\Http\Controllers\Frontend\SertifikasiController as FrontendSertifikasiController;
 use App\Http\Controllers\Frontend\SertifikasiprofController as FrontendSertifikasiprofController;
 use App\Http\Controllers\Frontend\StudiController as FrontendStudiController;
+use App\Http\Controllers\TahunController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,7 @@ Route::redirect('/', '/login');
 Auth::routes(['register' => false]);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'admin']], function () {
+    Route::post('/tahun', [TahunController::class, 'index'])->name('tahun');
     Route::get('/', [HomeController::class, 'index'])->name('home');
     // Permissions
     Route::resource('permissions', PermissionsController::class);
@@ -46,7 +48,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
 
     // Biodata
     Route::resource('biodata', BiodataController::class);
-    Route::get('/export/biodata', [BiodataController::class, 'export']);
+    Route::get('/export/biodata', [BiodataController::class, 'export']); 
     Route::get('/export/biodataAkademik', [BiodataController::class, 'exportDosenAkademik']);
     Route::get('/export/biodataTetap', [BiodataController::class, 'exportDosenTetap']);
     Route::get('/export/biodataTidakTetap', [BiodataController::class, 'exportDosenTidakTetap']);

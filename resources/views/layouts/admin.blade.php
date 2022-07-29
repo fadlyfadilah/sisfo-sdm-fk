@@ -55,7 +55,8 @@
                             @foreach (config('panel.available_languages') as $langLocale => $langName)
                                 <a class="dropdown-item"
                                     href="{{ url()->current() }}?change_language={{ $langLocale }}">{{ strtoupper($langLocale) }}
-                                    ({{ $langName }})</a>
+                                    ({{ $langName }})
+                                </a>
                             @endforeach
                         </div>
                     </li>
@@ -95,6 +96,35 @@
             <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
             </form>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Filter Tahun</h5>
+                            <button type="button" class="btn-close" data-coreui-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <form action="{{ route('admin.tahun') }}" method="post" required>
+                            @csrf
+                            <div class="modal-body">
+                                <select name="tahun" class="form-control" id="tahun">
+                                    <option selected hidden>--Pilih Salah Satu!--</option>
+                                    <option value="2021/2022 Ganjil">2021/2022 Ganjil</option>
+                                    <option value="2021/2022 Genap">2021/2022 Genap</option>
+                                    <option value="2022/2023 Ganjil">2022/2023 Ganjil</option>
+                                    <option value="2022/2023 Genap">2022/2023 Genap</option>
+                                    <option value="2023/2024 Ganjil">2023/2024 Ganjil</option>
+                                    <option value="2023/2024 Genap">2023/2024 Genap</option>
+                                </select>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="submit" class="btn btn-flat btn-primary">Ubah Tahun</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@4.2.0/dist/js/coreui.bundle.min.js"

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('peran')->nullable();
             $table->string('tingkatan_kegiatan')->nullable();
             $table->string('tahun_kegiatan')->nullable();
+            $table->string('akademik')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -7,8 +7,8 @@
     </div>
     <div class="user-panel mt-3 p-3 mb-3 d-flex">
         <div class="info">
-              <p>Selamat Datang, {{ auth()->user()->name }}</p>
-          </div>
+            <p>Selamat Datang, {{ auth()->user()->name }}</p>
+        </div>
     </div>
     <ul class="c-sidebar-nav">
         <li class="c-sidebar-nav-item">
@@ -197,7 +197,8 @@
         @endcan
         @can('peningkatan_access')
             <li class="c-sidebar-nav-item">
-                <a href="{{ route("admin.peningkatans.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/peningkatans") || request()->is("admin/peningkatans/*") ? "c-active" : "" }}">
+                <a href="{{ route('admin.peningkatans.index') }}"
+                    class="c-sidebar-nav-link {{ request()->is('admin/peningkatans') || request()->is('admin/peningkatans/*') ? 'c-active' : '' }}">
                     <i class="fa-fw fas fa-user-graduate c-sidebar-nav-icon">
 
                     </i>
@@ -217,6 +218,14 @@
                 </li>
             @endcan
         @endif
+        <li class="c-sidebar-nav-item">
+            <a type="button" class="c-sidebar-nav-link" data-coreui-toggle="modal" data-coreui-target="#exampleModal">
+                <i class="fas fa-calendar c-sidebar-nav-icon"></i>
+                Filter Tahun
+            </a>
+        </li>
+
+        
         <li class="c-sidebar-nav-item">
             <a href="#" class="c-sidebar-nav-link"
                 onclick="event.preventDefault(); document.getElementById('logoutform').submit();">

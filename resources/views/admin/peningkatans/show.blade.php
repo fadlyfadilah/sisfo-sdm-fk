@@ -87,6 +87,14 @@
                             {{ $peningkatan->tahun_kegiatan }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            Tahun Akademik
+                        </th>
+                        <td>
+                            {{ App\Models\Rekognisi::AKADEMIK_SELECT[$rekognisi->akademik] ?? '' }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

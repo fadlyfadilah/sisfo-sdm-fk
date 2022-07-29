@@ -12,6 +12,15 @@ class Peningkatan extends Model
 {
     use SoftDeletes;
     use HasFactory;
+    
+    public const AKADEMIK_SELECT = [
+        '2021/2022 Ganjil' => '2021/2022 Ganjil',
+        '2021/2022 Genap'  => '2021/2022 Genap',
+        '2022/2023 Ganjil' => '2022/2023 Ganjil',
+        '2022/2023 Genap'  => '2022/2023 Genap',
+        '2023/2024 Ganjil' => '2023/2024 Ganjil',
+        '2023/2024 Genap'  => '2023/2024 Genap',
+    ];
 
     public const PERAN_SELECT = [
         'Penyaji' => 'Penyaji',

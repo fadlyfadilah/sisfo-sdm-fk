@@ -102,6 +102,20 @@
                 @endif
             </div>
             <div class="form-group">
+                <label>Tahun Akademik</label>
+                <select class="form-control {{ $errors->has('akademik') ? 'is-invalid' : '' }}" name="akademik" id="akademik">
+                    <option value disabled {{ old('akademik', null) === null ? 'selected' : '' }}>{{ trans('Silahkan Pilih') }}</option>
+                    @foreach(App\Models\Rekognisi::AKADEMIK_SELECT as $key => $label)
+                        <option value="{{ $key }}" {{ old('akademik', $rekognisi->akademik) === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('akademik'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('akademik') }}
+                    </div>
+                @endif
+            </div>
+            <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                    Simpan
                 </button>

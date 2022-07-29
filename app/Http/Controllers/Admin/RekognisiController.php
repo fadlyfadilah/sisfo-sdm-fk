@@ -19,9 +19,24 @@ class RekognisiController extends Controller
     public function index()
     {
         abort_if(Gate::denies('rekognisi_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $rekognisis = Rekognisi::with(['biodata'])->get();
-
+        $tahun = session('tahun');
+        if (session()->has('tahun')) {
+            if ($tahun == '2021/2022 Ganjil') {
+                $rekognisis = Rekognisi::with(['biodata'])->where('akademik', $tahun)->get();
+            } elseif ($tahun == '2021/2022 Genap') {
+                $rekognisis = Rekognisi::with(['biodata'])->where('akademik', $tahun)->get();
+            } elseif ($tahun == '2022/2023 Ganjil') {
+                $rekognisis = Rekognisi::with(['biodata'])->where('akademik', $tahun)->get();
+            } elseif ($tahun == '2022/2023 Genap') {
+                $rekognisis = Rekognisi::with(['biodata'])->where('akademik', $tahun)->get();
+            } elseif ($tahun == '2023/2024 Ganjil') {
+                $rekognisis = Rekognisi::with(['biodata'])->where('akademik', $tahun)->get();
+            } else {
+                $rekognisis = Rekognisi::with(['biodata'])->where('akademik', $tahun)->get();
+            }
+        } else {
+            $rekognisis = Rekognisi::with(['biodata'])->get();
+        }
         return view('admin.rekognisis.index', compact('rekognisis'));
     }
 
