@@ -21,7 +21,24 @@ class RekognisiController extends Controller
         abort_if(Gate::denies('rekognisi_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $biodata = Biodatum::where('nik_id', auth()->user()->id)->first();
-        $rekognisis = Rekognisi::with(['biodata'])->where('biodata_id', $biodata->id)->get();
+        $tahun = session('tahun');
+        if (session()->has('tahun')) {
+            if ($tahun == '2021/2022 Ganjil') {
+                $rekognisis = Rekognisi::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+            } elseif ($tahun == '2021/2022 Genap') {
+                $rekognisis = Rekognisi::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+            } elseif ($tahun == '2022/2023 Ganjil') {
+                $rekognisis = Rekognisi::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+            } elseif ($tahun == '2022/2023 Genap') {
+                $rekognisis = Rekognisi::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+            } elseif ($tahun == '2023/2024 Ganjil') {
+                $rekognisis = Rekognisi::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+            } else {
+                $rekognisis = Rekognisi::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+            }
+        } else {
+            $rekognisis = Rekognisi::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+        }
 
         return view('frontend.rekognisis.index', compact('rekognisis'));
     }

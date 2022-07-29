@@ -21,8 +21,24 @@ class StudiController extends Controller
         abort_if(Gate::denies('studi_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $biodata = Biodatum::where('nik_id', auth()->user()->id)->first();
-        $studis = Studi::with(['biodata'])->where('biodata_id', $biodata->id)->get();
-
+        $tahun = session('tahun');
+        if (session()->has('tahun')) {
+            if ($tahun == '2021/2022 Ganjil') {
+                $studis = Studi::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+            } elseif ($tahun == '2021/2022 Genap') {
+                $studis = Studi::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+            } elseif ($tahun == '2022/2023 Ganjil') {
+                $studis = Studi::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+            } elseif ($tahun == '2022/2023 Genap') {
+                $studis = Studi::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+            } elseif ($tahun == '2023/2024 Ganjil') {
+                $studis = Studi::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+            } else {
+                $studis = Studi::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+            }
+        } else {
+            $studis = Studi::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+        }
         return view('frontend.studis.index', compact('studis'));
     }
 

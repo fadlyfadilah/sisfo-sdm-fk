@@ -99,6 +99,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
 // });
 Route::group(['as' => 'frontend.', 'middleware' => ['auth']], function () {
     Route::get('/home', [FrontendHomeController::class, 'index'])->name('home');
+    Route::post('/tahun', [TahunController::class, 'index'])->name('tahun');
 
     // Biodata
     Route::resource('biodata', FrontendBiodataController::class);

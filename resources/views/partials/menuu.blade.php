@@ -172,6 +172,12 @@
             @endcan
         @endif
         <li class="c-sidebar-nav-item">
+            <a type="button" class="c-sidebar-nav-link" data-coreui-toggle="modal" data-coreui-target="#exampleModal">
+                <i class="fas fa-calendar c-sidebar-nav-icon"></i>
+                Filter Tahun
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
             <a href="#" class="c-sidebar-nav-link"
                 onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                 <i class="c-sidebar-nav-icon fas fa-fw fa-sign-out-alt">

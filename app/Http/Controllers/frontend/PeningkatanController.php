@@ -22,6 +22,24 @@ class PeningkatanController extends Controller
         abort_if(Gate::denies('peningkatan_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $biodata = Biodatum::where('nik_id', auth()->user()->id)->first();
+        $tahun = session('tahun');
+        if (session()->has('tahun')) {
+            if ($tahun == '2021/2022 Ganjil') {
+                $peningkatans = Peningkatan::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+            } elseif ($tahun == '2021/2022 Genap') {
+                $peningkatans = Peningkatan::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+            } elseif ($tahun == '2022/2023 Ganjil') {
+                $peningkatans = Peningkatan::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+            } elseif ($tahun == '2022/2023 Genap') {
+                $peningkatans = Peningkatan::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+            } elseif ($tahun == '2023/2024 Ganjil') {
+                $peningkatans = Peningkatan::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+            } else {
+                $peningkatans = Peningkatan::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+            }
+        } else {
+            $peningkatans = Peningkatan::with(['biodata'])->where('biodata_id', $biodata->id)->where('akademik', $tahun)->get();
+        }
         $peningkatans = Peningkatan::with(['biodata'])->where('biodata_id', $biodata->id)->get();
 
         return view('frontend.peningkatans.index', compact('peningkatans'));
