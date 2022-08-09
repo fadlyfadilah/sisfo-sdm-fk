@@ -15,6 +15,7 @@ use App\Http\Requests\StoreBiodatumRequest;
 use App\Http\Requests\UpdateBiodatumRequest;
 use App\Models\Biodatum;
 use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
@@ -204,6 +205,12 @@ class BiodataController extends Controller
     public function exportDosenTidakTetap()
     {
         return Excel::download(new BiodataTidakTetapExport, 'Export Biodata Dosen Tidak Tetap.xlsx');
+    } 
+    public function exportDosenTidakTetapPdf()
+    {
+        $datas = Biodatum::with('nik')->where('statuskep', 'Dosen Tidak Tetap')->get();
+        $pdf = Pdf::loadView('pdf.dosentidaktetap', compact('datas'));
+        return $pdf->stream('DosenTidakTetap.pdf');
     } 
     public function exportDosenKontrakYayasan()
     {

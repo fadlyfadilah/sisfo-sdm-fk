@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BiodataController;
 use App\Http\Controllers\Admin\DiklatController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\ImpasingController;
+use App\Http\Controllers\Admin\ImportController;
 use App\Http\Controllers\Admin\JafungController;
 use App\Http\Controllers\Admin\KepangkatanController;
 use App\Http\Controllers\Admin\PendidikanController;
@@ -50,8 +51,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
     Route::resource('biodata', BiodataController::class);
     Route::get('/export/biodata', [BiodataController::class, 'export']); 
     Route::get('/export/biodataAkademik', [BiodataController::class, 'exportDosenAkademik']);
+    Route::get('/export/biodataProfesi', [BiodataController::class, 'exportDosenAkademik']);
     Route::get('/export/biodataTetap', [BiodataController::class, 'exportDosenTetap']);
     Route::get('/export/biodataTidakTetap', [BiodataController::class, 'exportDosenTidakTetap']);
+    Route::get('/exportpdf/biodataTidakTetap', [BiodataController::class, 'exportDosenTidakTetapPdf']);
     Route::get('/export/biodataKontrakYayasan', [BiodataController::class, 'exportDosenKontrakYayasan']);
     Route::get('/export/biodataAmi', [BiodataController::class, 'exportBiodataAmi']);
 
@@ -87,6 +90,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'a
     // Peningkatan
     Route::resource('peningkatans', PeningkatanController::class);
     Route::get('/export/peningkatan', [PeningkatanController::class, 'export']);
+
+    //import
+    Route::get('/import', [ImportController::class, 'index'])->name('import.index');
+    Route::post('/import/users', [ImportController::class, 'users'])->name('import.users');
+
 });
 // Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
 //     // Change password

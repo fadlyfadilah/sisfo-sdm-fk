@@ -225,6 +225,14 @@
             </a>
         </li>
 
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link {{ request()->is('admin/import') || request()->is('admin/import/*') ? 'c-active' : '' }}"
+                href="{{ route('admin.import.index') }}">
+                <i class="fa-fw fas fa-key c-sidebar-nav-icon">
+                </i>
+                Import
+            </a>
+        </li>
         
         <li class="c-sidebar-nav-item">
             <a href="#" class="c-sidebar-nav-link"

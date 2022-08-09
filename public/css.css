@@ -1,0 +1,93 @@
+.table,
+.td,
+.th {
+    border: 0.5mm solid;
+}
+
+.table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 25cm;
+    border-collapse: collapse;
+}
+
+.img {
+    text-align: center;
+    width: 8%;
+}
+
+.judul {
+    font-size: 19;
+    font-weight: 400;
+    text-align: center;
+    width: 50%;
+}
+
+.reset {
+    border-top: 2px solid;
+    border-right: 0 solid;
+    border-left: 0 solid;
+    border-bottom: 2px solid;
+}
+
+.table2 {
+    margin-top: 1cm;
+    margin-left: 1cm;
+}
+
+.table3 {
+    margin-top: 1cm;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25cm;
+    border-collapse: collapse;
+}
+
+.table3,
+.td,
+.th {
+    border: 0.1mm solid;
+}
+.table3 th{
+    background-color: rgb(201, 201, 201);
+    font-size: small;
+}
+.table3 .td {
+    word-wrap: break-word;
+    font-size: small;
+}
+
+.table4 {
+    margin-top: 1cm;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20cm;
+    border-collapse: collapse;
+}
+.table4,
+.td,
+.th {
+    border: 0.1mm solid;
+}
+.br{
+    border-right: 1;
+}
+.catatan {
+    width: 33%;
+    font-size: medium;
+    font-weight: 200;
+}
+.catatan2 {
+    width: 33%;
+    font-size: small;
+    font-weight: 200;
+    border-top: 0;
+    border-bottom: 0;
+    border-right: 1;
+}
+.catatan1 {
+    width: 33%;
+    font-size: small;
+    font-weight: 200;
+    border-bottom: 0;
+}

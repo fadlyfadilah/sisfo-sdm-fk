@@ -24,7 +24,7 @@ class Biodatum extends Model
     ];
 
     public const STATUSKEP_SELECT = [
-        'Dosen Tetap Yayasan'       => 'Dosen Tetap Yayasan',
+        'Dosen Tetap Yayasan' => 'Dosen Tetap Yayasan',
         'Dosen Tidak Tetap' => 'Dosen Tidak Tetap',
         'Dosen Kontrak Yayasan' => 'Dosen Kontrak Yayasan',
     ];

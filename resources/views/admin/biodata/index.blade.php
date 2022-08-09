@@ -19,6 +19,7 @@
                         <li><a class="dropdown-item" href="/admin/export/biodataProfesi">Data Dosen Profesi</a></li>
                         <li><a class="dropdown-item" href="/admin/export/biodataTetap">Data Dosen Tetap</a></li>
                         <li><a class="dropdown-item" href="/admin/export/biodataTidakTetap">Data Dosen Tidak Tetap</a></li>
+                        <li><a class="dropdown-item" href="/admin/exportpdf/biodataTidakTetap">Data Dosen Tidak Tetap (.pdf)</a></li>
                         <li><a class="dropdown-item" href="/admin/export/biodataKontrakYayasan">Data Dosen Kontrak Yayasan</a></li>
                         <li><a class="dropdown-item" href="/admin/export/biodataAmi">Data Dosen Borang AMI</a></li>
                     </ul>
