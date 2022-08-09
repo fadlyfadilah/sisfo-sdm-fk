@@ -34,7 +34,7 @@ class BiodataKontrakYayasanExport implements FromView, WithColumnWidths
     public function view(): View
     {
         return view('exports.biodataKontrakYayasan', [
-            'biodatas' => Biodatum::where('statuskep', 'Dosen Kontrak Yayasan')->get()
+            'biodatas' => Biodatum::with('nik')->where('statuskep', 'Dosen Kontrak Yayasan')->get()
         ]);
     }
 }

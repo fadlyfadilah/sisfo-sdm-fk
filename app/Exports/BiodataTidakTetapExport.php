@@ -33,7 +33,7 @@ class BiodataTidakTetapExport implements FromView, WithColumnWidths
     public function view(): View
     {
         return view('exports.biodataTidakTetap', [
-            'biodatas' => Biodatum::where('statuskep', 'Dosen Tidak Tetap')->get()
+            'biodatas' => Biodatum::with('nik')->where('statuskep', 'Dosen Tidak Tetap')->get()
         ]);
     }
 }

@@ -35,7 +35,7 @@ class BiodataProfesiExport implements FromView, WithColumnWidths
     public function view(): View
     {
         return view('exports.biodataProfesi', [
-            'biodatas' => Biodatum::where('homebase', 'Profesi')->get()
+            'biodatas' => Biodatum::with('nik')->where('homebase', 'Profesi')->get()
         ]);
     }
 }
